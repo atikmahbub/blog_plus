@@ -8,9 +8,10 @@ import Button from "@mui/material/Button";
 type AppBarProps = {
   title: string;
   user: string;
+  handleLogOut: () => void;
 };
 
-export default function TopBar({ title, user }: AppBarProps) {
+export default function TopBar({ title, user, handleLogOut }: AppBarProps) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="primary">
@@ -18,7 +19,10 @@ export default function TopBar({ title, user }: AppBarProps) {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             {title}
           </Typography>
-          <Button color="inherit">Welcome,{user}</Button>
+          <Typography>Welcome,{user}</Typography>
+          <Button color="inherit" onClick={handleLogOut}>
+            Logout
+          </Button>
         </Toolbar>
       </AppBar>
     </Box>

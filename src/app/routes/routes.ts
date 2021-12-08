@@ -8,10 +8,11 @@ type RouteType = {
   pathname: string;
   name: string;
   component: React.LazyExoticComponent<() => JSX.Element>;
+  private?: boolean;
 };
 
 export const routes: RouteType[] = [
   { pathname: "/", name: "Login-Page", component: LoginPage },
-  { pathname: "/home", name: "Home-Page", component: HomePage },
+  { pathname: "/home", name: "Home-Page", component: HomePage, private: true },
   { pathname: "*", name: "not-found", component: NotFound },
 ];
