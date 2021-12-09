@@ -1,7 +1,6 @@
-import { Divider, Stack } from "@mui/material";
+import { Stack } from "@mui/material";
 import { Fragment, useState } from "react";
 import AppBar from "../../components/AppBar";
-import BlogCard from "../../components/BlogCard";
 import CustomButton from "../../components/Button/CustomButton";
 import Dialog from "../../components/Dialog";
 import { useAppSelector, useAppDispatch } from "../../app/store/hooks";
@@ -10,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { addBlog } from "../../features/Blog/blogSlice";
 import { v4 as uuidv4 } from "uuid";
 import { FormValues } from "../../components/Dialog/Modal";
+import BlogContainer from "./BlogContainer";
 
 const Home = () => {
   const dispatch = useAppDispatch();
@@ -55,19 +55,7 @@ const Home = () => {
         >
           Add Blog
         </CustomButton>
-        {blogs
-          .slice(0)
-          .reverse()
-          .map((item: any, i: number) => (
-            <Stack key={i} mt={3} sx={{ width: "100%" }} spacing={3}>
-              <BlogCard
-                title={item.title}
-                details={item.details}
-                id={item.id}
-              />
-              <Divider orientation="horizontal" />
-            </Stack>
-          ))}
+        <BlogContainer blogs={blogs} />
       </Stack>
     </Fragment>
   );
