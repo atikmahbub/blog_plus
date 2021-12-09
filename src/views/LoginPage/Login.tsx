@@ -72,6 +72,7 @@ const Login = () => {
               color="primary"
               variant="standard"
               label="Password"
+              type="password"
               fullWidth
               focused
               onChange={onChange}

@@ -6,7 +6,7 @@ import { rootReducers } from "../../features/rootReducer";
 import { persistStore } from "redux-persist";
 
 const persistConfig = {
-  key: "authReducer",
+  key: "auth",
   storage,
 };
 

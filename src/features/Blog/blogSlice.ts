@@ -1,21 +1,17 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const initialState = {
-  blogs: [],
-};
-
 type BlogType = {
-  id: string;
+  id?: string;
   title: string;
   details: string;
 };
 
 export const blogSlice = createSlice({
-  name: "auth",
-  initialState,
+  name: "blog",
+  initialState: [] as any,
   reducers: {
     addBlog: (state, { payload }: PayloadAction<BlogType>) => {
-      //   state.blogs.join(payload);
+      state = state.push(payload);
     },
   },
 });

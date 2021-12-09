@@ -4,9 +4,7 @@ import { routes } from "./routes/routes";
 import { useAppSelector } from "./store/hooks";
 
 function App() {
-  const authenticated = useAppSelector(
-    (state) => state.authReducer.authenticated
-  );
+  const authenticated = useAppSelector((state) => state.auth.authenticated);
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
